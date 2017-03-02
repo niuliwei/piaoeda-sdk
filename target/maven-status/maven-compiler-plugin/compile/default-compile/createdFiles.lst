@@ -1,0 +1,5 @@
+com\yonyou\einvoice\sdk\entity\EinvoiceObject.class
+com\yonyou\einvoice\sdk\entity\EinvoiceBlueApply.class
+com\yonyou\einvoice\sdk\entity\EinvoiceEmailAndSMS.class
+com\yonyou\einvoice\sdk\entity\EinvoiceRequestdatas.class
+com\yonyou\einvoice\sdk\entity\EinvoiceURL.class
