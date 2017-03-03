@@ -2,9 +2,9 @@ package com.yonyou.einvoice.sdk.entity;
 /**
  * @author huangshengxin
  * @date 2017年3月1日 
- * 邮件和短信配置
+ * 短信配置
  */
-public class EinvoiceEmailAndSMS extends EinvoiceObject {
+public class EinvoiceSMS extends EinvoiceObject {
 
 	private static final long serialVersionUID = 6597339351327741108L;
 	

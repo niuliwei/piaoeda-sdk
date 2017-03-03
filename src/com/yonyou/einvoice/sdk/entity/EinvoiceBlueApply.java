@@ -1,5 +1,6 @@
 package com.yonyou.einvoice.sdk.entity;
 
+import java.util.List;
 
 /**
  * @author huangshengxin
@@ -12,47 +13,45 @@ public class EinvoiceBlueApply extends EinvoiceObject {
 	/**
 	 * 开票申请发票信息，包含发票头、发票明细
 	 */
-	private EinvoiceRequestdatas requestdatas;
+	private List<EinvoiceRequestdatas> requestdatas;
 	/**
 	 * 邮件推送配置(可选)
 	 */
-	private EinvoiceEmailAndSMS email;
+	private List<EinvoiceEmail> email;
 	/**
 	 * 短信推送配置(可选)
 	 */
-	private EinvoiceEmailAndSMS sms;
+	private List<EinvoiceSMS> sms;
 	/**
 	 * 回调服务配置(可选)
 	 */
-	private EinvoiceURL url;
+	private List<EinvoiceURL> url;
 	/**
 	 * 是否自动审核(可选)
 	 */
 	private boolean autoAudit;
-	
-	
-	public EinvoiceRequestdatas getRequestdatas() {
+	public List<EinvoiceRequestdatas> getRequestdatas() {
 		return requestdatas;
 	}
-	public void setRequestdatas(EinvoiceRequestdatas requestdatas) {
+	public void setRequestdatas(List<EinvoiceRequestdatas> requestdatas) {
 		this.requestdatas = requestdatas;
 	}
-	public EinvoiceEmailAndSMS getEmail() {
+	public List<EinvoiceEmail> getEmail() {
 		return email;
 	}
-	public void setEmail(EinvoiceEmailAndSMS email) {
+	public void setEmail(List<EinvoiceEmail> email) {
 		this.email = email;
 	}
-	public EinvoiceEmailAndSMS getSms() {
+	public List<EinvoiceSMS> getSms() {
 		return sms;
 	}
-	public void setSms(EinvoiceEmailAndSMS sms) {
+	public void setSms(List<EinvoiceSMS> sms) {
 		this.sms = sms;
 	}
-	public EinvoiceURL getUrl() {
+	public List<EinvoiceURL> getUrl() {
 		return url;
 	}
-	public void setUrl(EinvoiceURL url) {
+	public void setUrl(List<EinvoiceURL> url) {
 		this.url = url;
 	}
 	public boolean isAutoAudit() {
@@ -61,4 +60,5 @@ public class EinvoiceBlueApply extends EinvoiceObject {
 	public void setAutoAudit(boolean autoAudit) {
 		this.autoAudit = autoAudit;
 	}
+	
 }
