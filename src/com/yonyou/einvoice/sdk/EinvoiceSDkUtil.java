@@ -9,7 +9,6 @@ import com.yonyou.einvoice.sdk.entity.EinvoiceManualOperation;
 import com.yonyou.einvoice.sdk.entity.EinvoiceQueryStatus;
 import com.yonyou.einvoice.sdk.entity.EinvoiceRedRetro;
 import com.yonyou.einvoice.sdk.entity.results.EinvoiceBaseResult;
-import com.yonyou.einvoice.sdk.entity.results.EinvoiceQueryResult;
 import com.yonyou.einvoice.sdk.entity.results.EinvoiceRecallResult;
 
 /**

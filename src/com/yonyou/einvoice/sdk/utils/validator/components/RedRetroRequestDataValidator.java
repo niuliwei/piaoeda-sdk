@@ -11,8 +11,6 @@ public class RedRetroRequestDataValidator {
 	*/
 	
 	public boolean validate(List<EinvoiceRedRetroRequestdatas> requestdatas) throws Exception {
-		//List<EinvoiceRequestdatas> requestdatas = apply.getRequestdatas();
-		//List<Map<String, Object>> datas = new ArrayList<>();
 		if(requestdatas!=null){
 			for (EinvoiceRedRetroRequestdatas requestdata : requestdatas) {
 					if(null==requestdata.getFPQQLSH()){

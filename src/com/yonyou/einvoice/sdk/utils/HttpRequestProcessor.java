@@ -51,23 +51,13 @@ public class HttpRequestProcessor {
 			HttpEntity resEntity = response.getEntity();
 			if (resEntity != null) {
 				result = EntityUtils.toString(resEntity, "UTF-8");
-				System.out.println(result);
 			}
-			
 		}
-		//return new Gson().fromJson(result, EinvoiceBaseResult.class);
 		return result;
 	}
 
 	public static String sendGet(String apiURL, Map<String, String> paramsMap) {
+		//暂时没有get请求的需求
 		return null;
-//		//TODO 实现get
-//		HttpClient httpClient = HttpClients.custom().build();
-//		HttpGet httpGet = new HttpGet(apiURL);
-//		
-//		// 签名
-//	    String sign = Signature.sign(paramsMap);
-//	    httpGet.addHeader("sign", sign);
-//		return null;
 	}
 }

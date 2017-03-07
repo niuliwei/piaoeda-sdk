@@ -12,8 +12,6 @@ public class BlueApplyRequestDataValidator {
 
 	
 	public boolean validate(List<EinvoiceRequestdatas> requestdatas) throws Exception {
-		//List<EinvoiceRequestdatas> requestdatas = apply.getRequestdatas();
-		//List<Map<String, Object>> datas = new ArrayList<>();
 		if(requestdatas!=null){
 			for (EinvoiceRequestdatas requestdata : requestdatas) {
 					if(null==requestdata.getFPQQLSH()){

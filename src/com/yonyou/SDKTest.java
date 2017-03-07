@@ -16,7 +16,6 @@ import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceRequestdatasInventory;
 import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceSMS;
 import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceURL;
 import com.yonyou.einvoice.sdk.entity.results.EinvoiceBaseResult;
-import com.yonyou.einvoice.sdk.entity.results.EinvoiceQueryResult;
 import com.yonyou.einvoice.sdk.entity.results.EinvoiceRecallResult;
 
 /**
@@ -33,12 +32,12 @@ public class SDKTest {
 		
 		EinvoiceRequestdatas data = new EinvoiceRequestdatas();
 		//1q0001344567893
-		String fpqqlsh = "1q0001344567908";
+		String fpqqlsh = "1q0001344567912";
 		data.setFPQQLSH(fpqqlsh);
 		data.setXSF_NSRSBH("201609140000001");
-		data.setXSF_MC("cabr");
+		data.setXSF_MC("用友");
 		data.setXSF_DZDH("bshdl10号");
-		data.setGMF_MC("用友");
+		data.setGMF_MC("用友123");
 		data.setJSHJ(100.00);
 		
 		EinvoiceRequestdatasInventory item1 = new EinvoiceRequestdatasInventory();
@@ -82,21 +81,20 @@ public class SDKTest {
 		apply.setSms(einvoiceSMSs);
 		apply.setUrl(einvoiceURLs);
 		apply.setAutoAudit(true);
-
+		
 		//apply.setAutoAudit(false);
 		
 		//1.开票测试
-//		BlueApplyBusiness blueApplyBusiness = new BlueApplyBusiness();
-//		EinvoiceBaseResult baseResult = blueApplyBusiness.apply(apply);
-//		System.out.println(baseResult);
+		BlueApplyBusiness blueApplyBusiness = new BlueApplyBusiness();
+		EinvoiceBaseResult baseResult = blueApplyBusiness.apply(apply);
+		System.out.println(baseResult);
 		
 		//2.查询测试
-		ProcedureQueryBusiness queryBusiness = new ProcedureQueryBusiness();
-		EinvoiceQueryStatus queryStatus = new EinvoiceQueryStatus();
-		queryStatus.setFpqqlsh(fpqqlsh);
-//		EinvoiceQueryResult queryResult = queryBusiness.query(queryStatus);
-		EinvoiceRecallResult queryResult = queryBusiness.query(queryStatus);
-		System.out.println(queryResult);
+//		ProcedureQueryBusiness queryBusiness = new ProcedureQueryBusiness();
+//		EinvoiceQueryStatus queryStatus = new EinvoiceQueryStatus();
+//		queryStatus.setFpqqlsh(fpqqlsh);
+//		EinvoiceRecallResult queryResult = queryBusiness.query(queryStatus);
+//		System.out.println(queryResult);
 		
 	}
 }

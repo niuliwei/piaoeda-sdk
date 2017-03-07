@@ -4,7 +4,6 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.yonyou.einvoice.sdk.entity.EinvoiceManualOperation;
-import com.yonyou.einvoice.sdk.entity.results.EinvoiceBaseResult;
 import com.yonyou.einvoice.sdk.entity.results.EinvoiceRecallResult;
 import com.yonyou.einvoice.sdk.utils.Configure;
 import com.yonyou.einvoice.sdk.utils.HttpRequestProcessor;

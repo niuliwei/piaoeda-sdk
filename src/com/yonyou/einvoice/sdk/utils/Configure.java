@@ -14,11 +14,14 @@ public class Configure {
 	//以下是几个API的路径：
 	//1）申请开蓝票API
 	public static final String APPLY_BLUE_INVOICE_API = "http://www.yesfp.com/invoiceclient-web/api/invoiceApply/insertWithArray?appid="+APPID;
+	//5)直接开票API
+	//public static final String APPLY_BLUE_INVOICE_API = "http://www.yesfp.com/invoiceclient-web/api/invoiceApplyDemo/insertAndApply?appid="+APPID;
 	//2）开票状态查询服务API
 	public static final String PROCEDURE_STATUS_QUERY_API="http://www.yesfp.com/invoiceclient-web/api/invoiceApply/queryInvoiceStatus?appid="+APPID;
 	//3）冲红发票申请API
 	public static final String RED_INVOICE_RETROGRADATION = "http://www.yesfp.com/invoiceclient-web/api/invoiceApply/red?appid="+APPID;
+	//6)直接发票冲红url
+	//public static final String RED_INVOICE_RETROGRADATION = "http://www.yesfp.com/invoiceclient-web/api/invoiceApplyDemo/red?appid="+APPID;
 	//4)开票申请开票API
 	public static final String MANUAL_OPERATION_API = "http://www.yesfp.com/invoiceclient-web/api/invoiceApply/issue?appid="+APPID;
-	
 }

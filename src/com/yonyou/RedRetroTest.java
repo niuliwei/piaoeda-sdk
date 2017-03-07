@@ -12,6 +12,7 @@ import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceRedRetroRequestdatas;
 import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceSMS;
 import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceURL;
 import com.yonyou.einvoice.sdk.entity.results.EinvoiceBaseResult;
+import com.yonyou.einvoice.sdk.entity.results.EinvoiceRecallResult;
 
 /**
  * @author huangshengxin
@@ -29,10 +30,10 @@ public class RedRetroTest {
 		
 		EinvoiceRedRetroRequestdatas data = new EinvoiceRedRetroRequestdatas();
 		//1q0001344567893
-		String fpqqlsh = "1q0001344567894";
+		String fpqqlsh = "1q0001344567913";
 		data.setFPQQLSH(fpqqlsh);
-		data.setFpDm("000000000000");
-		data.setFpHm("03091804");
+		data.setFpDm("010011652011");
+		data.setFpHm("68457353");
 		data.setORGCODE("");
 		
 //		EinvoiceRequestdatasInventory item1 = new EinvoiceRequestdatasInventory();
@@ -55,11 +56,11 @@ public class RedRetroTest {
 		
 		EinvoiceEmail email  = new EinvoiceEmail();
 		email.setFpqqlsh(fpqqlsh);
-		email.setAddress("hsx@yonyou.com");
+		email.setAddress("huangshengxin@yonyou.com");
 		
 		EinvoiceSMS sms = new EinvoiceSMS();
 		sms.setFpqqlsh(fpqqlsh);
-		sms.setAddress("12888888888");
+		sms.setAddress("15201242530");
 		
 		EinvoiceURL url = new EinvoiceURL();
 		url.setFpqqlsh(fpqqlsh);
@@ -77,7 +78,7 @@ public class RedRetroTest {
 		retro.setUrl(einvoiceURLs);
 		retro.setAutoAudit(true);
 		RedRetrogradationBusiness redRetrogradationBusiness = new RedRetrogradationBusiness();
-		EinvoiceBaseResult baseResult = redRetrogradationBusiness.retrograd(retro);
+		EinvoiceRecallResult baseResult = redRetrogradationBusiness.retrograd(retro);
 		System.out.println(baseResult);
 	}
 }

@@ -65,7 +65,7 @@ public class EinvoiceRecallResult extends EinvoiceBaseResult {
 	@Override
 	public String toString() {
 		return "EinvoiceRecallResult [data=" + data + ", pdf=" + pdf + ", fpqqlsh=" + fpqqlsh + ", shareurl=" + shareurl
-				+ ", sharecode=" + sharecode + "]";
+				+ ", sharecode=" + sharecode + ", code=" + code + ", msg=" + msg + "]";
 	}
 	
 }

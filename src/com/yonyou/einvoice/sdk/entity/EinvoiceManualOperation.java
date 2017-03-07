@@ -17,15 +17,6 @@ public class EinvoiceManualOperation extends EinvoiceObject {
 	 */
 	private List<EinvoiceManualOperationRequestData> einvoiceManualOperationRequestData;
 
-	/*public EinvoiceManualOperation(EinvoiceBlueApply einvoiceBlueApply) {
-		List<EinvoiceRequestdatas> requestdatas = einvoiceBlueApply.getRequestdatas();
-
-		for (EinvoiceRequestdatas data : requestdatas) {
-			this.einvoiceManualOperationRequestData.add(
-					new EinvoiceManualOperationRequestData(data.getFPQQLSH(), data.getXSF_NSRSBH(), data.getJSHJ()));
-		}
-		
-	}*/
 
 	public List<EinvoiceManualOperationRequestData> getEinvoiceManualOperationRequestData() {
 		return einvoiceManualOperationRequestData;

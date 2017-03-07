@@ -33,14 +33,7 @@ public class ParamBuilder {
 		paramsMap.put("email", buildEmailConfigs(einvoiceBlueApply.getEmail()));
 		paramsMap.put("sms", buildSmsConfigs(einvoiceBlueApply.getSms()));
 		paramsMap.put("url", buildUrlConfigs(einvoiceBlueApply.getUrl()));
-		//if(einvoiceBlueApply.isAutoAudit()||einvoiceBlueApply)
-		//TODO 如何判断是否初始化？
 		paramsMap.put("autoAudit", String.valueOf(einvoiceBlueApply.isAutoAudit()));
-		//Boolean.parseBoolean(einvoiceBlueApply.getRequestdatas().get);
-		//String autoAudit = String.valueOf(einvoiceBlueApply.isAutoAudit());
-		//if("".equals(autoAudit)||einvoiceBlueApply.isAutoAudit()){
-			//paramsMap.put("autoAudit","true");
-		//}
 		return paramsMap;
 	}
 
@@ -68,17 +61,6 @@ public class ParamBuilder {
 		return paramsMap;
 	}
 
-	/*public static Map<String, String> buildPostParam(Object object) {
-		EinvoiceBlueApply einvoiceBlueApply = (EinvoiceBlueApply) object;
-		Map<String, String> paramsMap = new HashMap<String, String>();
-		paramsMap.put("requestdatas", buildRequestDatas(einvoiceBlueApply));
-		// paramsMap.put("email", buildEmailConfigs(einvoiceBlueApply));
-		// paramsMap.put("sms", buildSmsConfigs(einvoiceBlueApply));
-		// paramsMap.put("url", buildUrlConfigs(einvoiceBlueApply));
-		paramsMap.put("autoAudit", "true");
-
-		return paramsMap;
-	}*/
 
 	private String buildManualOperationRequestdata(
 			List<EinvoiceManualOperationRequestData> einvoiceManualOperationRequestData) {
@@ -118,7 +100,6 @@ public class ParamBuilder {
 	private String buildUrlConfigs(List<EinvoiceURL> urls) {
 
 		if (urls!=null) {
-			//List<EinvoiceURL> urls = einvoiceBlueApply.getUrl();
 			List<Map<String, Object>> datas = new ArrayList<>();
 			for (EinvoiceURL url : urls) {
 				Map<String, Object> map = new HashMap<>();
@@ -141,7 +122,6 @@ public class ParamBuilder {
 	 */
 	private String buildSmsConfigs(List<EinvoiceSMS> smses) {
 		if (smses!=null) {
-			//List<EinvoiceSMS> smses = einvoiceBlueApply.getSms();
 			List<Map<String, Object>> datas = new ArrayList<>();
 			for (EinvoiceSMS sms : smses) {
 				Map<String, Object> map = new HashMap<>();
@@ -171,7 +151,6 @@ public class ParamBuilder {
 	private String buildEmailConfigs(List<EinvoiceEmail> emails) {
 
 		if (emails!=null) {
-			//List<EinvoiceEmail> emails = einvoiceBlueApply.getEmail();
 			List<Map<String, Object>> datas = new ArrayList<>();
 			for (EinvoiceEmail email : emails) {
 				Map<String, Object> map = new HashMap<>();
@@ -202,7 +181,6 @@ public class ParamBuilder {
 		if(einvoiceRequestdatas==null){
 			throw new RuntimeException("requestdatas参数不能为空");
 		}
-		//List<EinvoiceRequestdatas> einvoiceRequestdatas = einvoiceBlueApply.getRequestdatas();
 		List<Map<String, Object>> datas = new ArrayList<>();
 		for (EinvoiceRequestdatas requestdata : einvoiceRequestdatas) {
 			Map<String, Object> map = new HashMap<>();

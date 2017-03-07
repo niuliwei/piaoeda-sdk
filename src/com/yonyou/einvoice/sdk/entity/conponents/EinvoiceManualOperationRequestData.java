@@ -26,12 +26,6 @@ public class EinvoiceManualOperationRequestData extends EinvoiceObject{
 	 * 价税合计
 	 */
 	private double JSHJ;
-	/*public EinvoiceManualOperationRequestData(String fpqqlsh2, String xsf_NSRSBH2, double jshj2) {
-		// TODO Auto-generated constructor stub
-		this.FPQQLSH =fpqqlsh2;
-		this.XSF_NSRSBH = xsf_NSRSBH2;
-		this.JSHJ = jshj2;
-	}*/
 	public String getFPQQLSH() {
 		return FPQQLSH;
 	}
