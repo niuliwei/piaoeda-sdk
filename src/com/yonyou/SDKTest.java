@@ -3,19 +3,21 @@ package com.yonyou;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.rowset.RowSetMetaDataImpl;
 
 import org.junit.Test;
 
-import com.google.gson.Gson;
 import com.yonyou.einvoice.sdk.business.BlueApplyBusiness;
+import com.yonyou.einvoice.sdk.business.ProcedureQueryBusiness;
 import com.yonyou.einvoice.sdk.entity.EinvoiceBlueApply;
-import com.yonyou.einvoice.sdk.entity.EinvoiceEmail;
-import com.yonyou.einvoice.sdk.entity.EinvoiceRequestdatas;
-import com.yonyou.einvoice.sdk.entity.EinvoiceRequestdatasInventory;
-import com.yonyou.einvoice.sdk.entity.EinvoiceSMS;
-import com.yonyou.einvoice.sdk.entity.EinvoiceURL;
-import com.yonyou.einvoice.sdk.utils.MapBuilder;
+import com.yonyou.einvoice.sdk.entity.EinvoiceQueryStatus;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceEmail;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceRequestdatas;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceRequestdatasInventory;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceSMS;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceURL;
+import com.yonyou.einvoice.sdk.entity.results.EinvoiceBaseResult;
+import com.yonyou.einvoice.sdk.entity.results.EinvoiceQueryResult;
+import com.yonyou.einvoice.sdk.entity.results.EinvoiceRecallResult;
 
 /**
  * @author huangshengxin
@@ -30,7 +32,9 @@ public class SDKTest {
 		List<EinvoiceURL> einvoiceURLs= new ArrayList<>();
 		
 		EinvoiceRequestdatas data = new EinvoiceRequestdatas();
-		data.setFPQQLSH("1q0001234567890");
+		//1q0001344567893
+		String fpqqlsh = "1q0001344567908";
+		data.setFPQQLSH(fpqqlsh);
 		data.setXSF_NSRSBH("201609140000001");
 		data.setXSF_MC("cabr");
 		data.setXSF_DZDH("bshdl10号");
@@ -41,11 +45,13 @@ public class SDKTest {
 		item1.setXMMC("办公用品");
 		item1.setXMJSHJ(50.00);
 		item1.setSL(0.17);
+		item1.setXMSL(1);
 		
 		EinvoiceRequestdatasInventory item2 = new EinvoiceRequestdatasInventory();
 		item2.setXMMC("耗材");
 		item2.setXMJSHJ(50.00);
 		item2.setSL(0.17);
+		item2.setXMSL(2);
 		
 		List<EinvoiceRequestdatasInventory> list = new ArrayList<>();
 		list.add(item1);
@@ -55,53 +61,42 @@ public class SDKTest {
 		requestdatas.add(data);
 		
 		
-//		EinvoiceEmail email  = new EinvoiceEmail();
-//		email.setFpqqlsh("1234567890");
-//		email.setAddress("hsx@yonyou.com");
-//		
-//		EinvoiceSMS sms = new EinvoiceSMS();
-//		sms.setFpqqlsh("1234567890");
-//		sms.setAddress("12888888888");
-//		
-//		EinvoiceURL url = new EinvoiceURL();
-//		url.setFpqqlsh("1234567890");
-//		url.setUrl("www.bilibili.com");
-//		
-//		einvoiceEmails.add(email);
-//		einvoiceSMSs.add(sms);
-//		einvoiceURLs.add(url);
-//		
+		EinvoiceEmail email  = new EinvoiceEmail();
+		email.setFpqqlsh(fpqqlsh);
+		email.setAddress("huangshengxin@yonyou.com");
+		
+		EinvoiceSMS sms = new EinvoiceSMS();
+		sms.setFpqqlsh(fpqqlsh);
+		sms.setAddress("15201242530");
+		
+		EinvoiceURL url = new EinvoiceURL();
+		url.setFpqqlsh(fpqqlsh);
+		url.setUrl("www.baidu.com");
+		
+		einvoiceEmails.add(email);
+		einvoiceSMSs.add(sms);
+		einvoiceURLs.add(url);
 		EinvoiceBlueApply apply = new EinvoiceBlueApply();
 		apply.setRequestdatas(requestdatas);
 		apply.setEmail(einvoiceEmails);
 		apply.setSms(einvoiceSMSs);
 		apply.setUrl(einvoiceURLs);
 		apply.setAutoAudit(true);
+
+		//apply.setAutoAudit(false);
 		
-		//MapBuilder.buildPostParam(apply).toString();
-		System.out.println();
-		//Gson gson = new Gson();
-		//System.out.println(gson.toJson(apply));
-		//apply.setAutoAudit(true);
-		BlueApplyBusiness blueApplyBusiness = new BlueApplyBusiness();
+		//1.开票测试
+//		BlueApplyBusiness blueApplyBusiness = new BlueApplyBusiness();
+//		EinvoiceBaseResult baseResult = blueApplyBusiness.apply(apply);
+//		System.out.println(baseResult);
 		
-		System.out.println(blueApplyBusiness.applyBlueInvoice(apply));
-		//Gson gson = new Gson();
-		//String json = "[ {\"FPQQLSH\" : \"12345678901234567890\",    \"XSF_NSRSBH\" : \"销售方纳税人识别号\",    \"XSF_MC\" : \"销售方名称\",    \"XSF_DZDH\" : \"销售方地址、电话\",    \"XSF_YHZH\" : \"销售方银行账号\",    \"GMF_NSRSBH\" : \"购买方纳税人识别号\",    \"GMF_MC\" : \"购买方名称\",    \"GMF_DZDH\" : \"购买方地址、电话\",    \"GMF_YHZH\" : \"购买方银行账号\",    \"KPR\" : \"开票人\",    \"SKR\" : \"收款人\",    \"FHR\" : \"复核人\",    \"JSHJ\" : \"价税合计\",    \"HJJE\" : \"合计金额\",    \"HJSE\" : \"合计税额\",    \"BZ\" : \"备注\",    \"BMB_BBH\" : \"10.0\",    \"items\" : [{            \"FPHXZ\" : \"发票行性质\",            \"XMMC\" : \"项目名称\",            \"GGXH\" : \"规格型号\",            \"DW\" : \"单位\",            \"XMSL\" : \"项目数量\",            \"XMDJ\" : \"项目单价\",            \"XMJE\" : \"项目金额\",            \"XMJSHJ\" : \"项目价税合计\",            \"SL\" : \"税率\",            \"SE\" : \"税额\",            \"HH\":\"行号\",            \"SPBM\":\"商品编码\",  \"ZXBM\":\"自行编码\"  \"KCE\":300  }    ]}]";
-		//EinvoiceRequestdatas fromJson = gson.fromJson(json, EinvoiceRequestdatas.class);
-		//System.out.println(fromJson.toString());
-		/*EinvoiceRequestdatas data = new EinvoiceRequestdatas();
-		data.setFPQQLSH("1234567890");
-		data.setXSF_NSRSBH("110105400001141");
-		data.set*/
-		
-		//EinvoiceBlueApply apply = new EinvoiceBlueApply();
-		/*apply.setRequestdatas();
-		apply.setEmail();
-		apply.setSms();
-		apply.setUrl();*/
-		//apply.setAutoAudit(true);
-		//return null;
+		//2.查询测试
+		ProcedureQueryBusiness queryBusiness = new ProcedureQueryBusiness();
+		EinvoiceQueryStatus queryStatus = new EinvoiceQueryStatus();
+		queryStatus.setFpqqlsh(fpqqlsh);
+//		EinvoiceQueryResult queryResult = queryBusiness.query(queryStatus);
+		EinvoiceRecallResult queryResult = queryBusiness.query(queryStatus);
+		System.out.println(queryResult);
 		
 	}
 }

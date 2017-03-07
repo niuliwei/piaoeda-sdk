@@ -2,9 +2,15 @@ package com.yonyou.einvoice.sdk.entity;
 
 import java.util.List;
 
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceEmail;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceRequestdatas;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceSMS;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceURL;
+
 /**
  * @author huangshengxin
  * @since 2017年3月1日 
+ * 蓝票开票的参数封装
  */
 public class EinvoiceBlueApply extends EinvoiceObject {
 
@@ -29,7 +35,7 @@ public class EinvoiceBlueApply extends EinvoiceObject {
 	/**
 	 * 是否自动审核(可选)
 	 */
-	private boolean autoAudit;
+	private boolean autoAudit = true;
 	public List<EinvoiceRequestdatas> getRequestdatas() {
 		return requestdatas;
 	}

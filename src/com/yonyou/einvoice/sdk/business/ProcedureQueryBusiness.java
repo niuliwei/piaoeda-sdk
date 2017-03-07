@@ -1,34 +1,34 @@
 package com.yonyou.einvoice.sdk.business;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
+import java.util.Map;
 
-import com.yonyou.einvoice.sdk.service.ProcedureQueryService;
+import com.google.gson.Gson;
+import com.yonyou.einvoice.sdk.entity.EinvoiceQueryStatus;
+import com.yonyou.einvoice.sdk.entity.results.EinvoiceQueryResult;
+import com.yonyou.einvoice.sdk.entity.results.EinvoiceRecallResult;
+import com.yonyou.einvoice.sdk.utils.Configure;
+import com.yonyou.einvoice.sdk.utils.HttpRequestProcessor;
+import com.yonyou.einvoice.sdk.utils.ParamBuilder;
 
 /**
  * @author huangshengxin
- * @date 2017年3月3日 
- * 查询开票状态
+ * @date 2017年3月3日 查询开票状态
  */
-public class ProcedureQueryBusiness {
-	
-	private ProcedureQueryService procedureQueryService;
-	
-	public ProcedureQueryBusiness(){
-		try {
-			this.procedureQueryService = new ProcedureQueryService();
-		} catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-			e.printStackTrace();
-		}
+public class ProcedureQueryBusiness extends BaseBusiness {
+
+	public ProcedureQueryBusiness() {
+		super(Configure.PROCEDURE_STATUS_QUERY_API);
 	}
-	
-	
-	public String procedureStatusQuery(String fpqqlsh){
+
+	public EinvoiceRecallResult query(EinvoiceQueryStatus einvoiceQueryStatus) {
+
+		Map<String, String> paramsMap = new ParamBuilder().buildStatusQueryParam(einvoiceQueryStatus);
 		try {
-			return procedureQueryService.procedureStatusQuery(fpqqlsh).toString();
+			String result = HttpRequestProcessor.sendPost(apiURL, paramsMap);
+			return new Gson().fromJson(result, EinvoiceRecallResult.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 }
-

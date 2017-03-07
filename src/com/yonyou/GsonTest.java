@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.yonyou.einvoice.sdk.entity.EinvoiceEmail;
+import com.yonyou.einvoice.sdk.entity.conponents.EinvoiceEmail;
 
 public class GsonTest {
 	/**

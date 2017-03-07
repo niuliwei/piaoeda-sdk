@@ -18,6 +18,7 @@ public class Configure {
 	public static final String PROCEDURE_STATUS_QUERY_API="http://www.yesfp.com/invoiceclient-web/api/invoiceApply/queryInvoiceStatus?appid="+APPID;
 	//3）冲红发票申请API
 	public static final String RED_INVOICE_RETROGRADATION = "http://www.yesfp.com/invoiceclient-web/api/invoiceApply/red?appid="+APPID;
-	
+	//4)开票申请开票API
+	public static final String MANUAL_OPERATION_API = "http://www.yesfp.com/invoiceclient-web/api/invoiceApply/issue?appid="+APPID;
 	
 }
