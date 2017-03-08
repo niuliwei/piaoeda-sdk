@@ -31,13 +31,12 @@ public class Signature {
 	public static String sign(Map<String, String> paramsMap) throws Exception {
 
 	    // 读取CA证书与PEM格式证书需要根据实际证书使用情况而定,目前这两种都支持
-	     PrivateKey privateKey = loadPrivateKeyOfCA();
+	    PrivateKey privateKey = loadPrivateKeyOfCA();
 	    //PrivateKey privateKey = loadPrivateKeyOfPem();
 
 	    Map<String, Object> claims =
 	        JwtParamBuilder.build().setSubject("tester").setIssuer("einvoice").setAudience("einvoice")
 	            .addJwtId().addIssuedAt().setExpirySeconds(300).setNotBeforeSeconds(300).getClaims();
-
 	    // 需要将表单参数requestdatas的数据进行md5加密，然后放到签名数据的requestdatas中。
 	    // 此签名数据必须存在，否则在验证签名时会不通过。
 	    String value = paramsMap.get("fpqqlsh");
@@ -112,7 +111,7 @@ public class Signature {
 	    String keypath = "D:\\00work\\00workspace\\piaoeda-SDK\\source\\pro22.pfx";
 	    FileInputStream in = new FileInputStream(keypath);
 	    KeyStore ks = KeyStore.getInstance("pkcs12");
-	    String pwd = "password";
+	    String pwd = Configure.PASSWORD;
 	    ks.load(in, pwd.toCharArray());
 	    String alias = ks.aliases().nextElement();
 	    PrivateKey caprk = (PrivateKey) ks.getKey(alias, pwd.toCharArray());

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.yonyou.einvoice.sdk.EinvoiceSDk;
 import com.yonyou.einvoice.sdk.business.BlueApplyBusiness;
 import com.yonyou.einvoice.sdk.business.ProcedureQueryBusiness;
 import com.yonyou.einvoice.sdk.entity.EinvoiceBlueApply;
@@ -32,7 +33,7 @@ public class SDKTest {
 		
 		EinvoiceRequestdatas data = new EinvoiceRequestdatas();
 		//1q0001344567893
-		String fpqqlsh = "1q0001344567912";
+		String fpqqlsh = "1q0001344567914";
 		data.setFPQQLSH(fpqqlsh);
 		data.setXSF_NSRSBH("201609140000001");
 		data.setXSF_MC("用友");
@@ -56,9 +57,7 @@ public class SDKTest {
 		list.add(item1);
 		list.add(item2);
 		data.setItem(list);
-		
 		requestdatas.add(data);
-		
 		
 		EinvoiceEmail email  = new EinvoiceEmail();
 		email.setFpqqlsh(fpqqlsh);
@@ -85,9 +84,10 @@ public class SDKTest {
 		//apply.setAutoAudit(false);
 		
 		//1.开票测试
-		BlueApplyBusiness blueApplyBusiness = new BlueApplyBusiness();
-		EinvoiceBaseResult baseResult = blueApplyBusiness.apply(apply);
-		System.out.println(baseResult);
+		//BlueApplyBusiness blueApplyBusiness = new BlueApplyBusiness();
+		EinvoiceRecallResult result = new EinvoiceSDk().apply(apply);
+		//= blueApplyBusiness.apply(apply);
+		System.out.println(result);
 		
 		//2.查询测试
 //		ProcedureQueryBusiness queryBusiness = new ProcedureQueryBusiness();

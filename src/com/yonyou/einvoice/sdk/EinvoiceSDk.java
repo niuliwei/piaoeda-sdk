@@ -10,12 +10,13 @@ import com.yonyou.einvoice.sdk.entity.EinvoiceQueryStatus;
 import com.yonyou.einvoice.sdk.entity.EinvoiceRedRetro;
 import com.yonyou.einvoice.sdk.entity.results.EinvoiceBaseResult;
 import com.yonyou.einvoice.sdk.entity.results.EinvoiceRecallResult;
+import com.yonyou.einvoice.sdk.utils.Configure;
 
 /**
  * @author huangshengxin
  * @date 2017年3月7日 
 */
-public class EinvoiceSDkUtil {
+public class EinvoiceSDk {
 	/**
 	 * 
 	 * @param einvoiceBlueApply
@@ -23,7 +24,11 @@ public class EinvoiceSDkUtil {
 	 * EinvoiceRecallResult
 	 * 蓝票开票申请
 	 */
-	public static EinvoiceRecallResult apply(EinvoiceBlueApply einvoiceBlueApply) {
+	public EinvoiceSDk(){
+		Configure.init();
+	}
+	
+	public  EinvoiceRecallResult apply(EinvoiceBlueApply einvoiceBlueApply) {
 		return new BlueApplyBusiness().apply(einvoiceBlueApply);
 	}
 	/**
@@ -33,7 +38,7 @@ public class EinvoiceSDkUtil {
 	 * EinvoiceRecallResult
 	 * 开票状态查询
 	 */
-	public static EinvoiceRecallResult query(EinvoiceQueryStatus einvoiceQueryStatus) {
+	public  EinvoiceRecallResult query(EinvoiceQueryStatus einvoiceQueryStatus) {
 		return new ProcedureQueryBusiness().query(einvoiceQueryStatus);
 	}
 	/**
@@ -43,7 +48,7 @@ public class EinvoiceSDkUtil {
 	 * EinvoiceRecallResult
 	 * 发票冲红
 	 */
-	public static EinvoiceRecallResult retrograd(EinvoiceRedRetro einvoiceRedRetro) {
+	public  EinvoiceRecallResult retrograd(EinvoiceRedRetro einvoiceRedRetro) {
 		return new RedRetrogradationBusiness().retrograd(einvoiceRedRetro);
 	}
 	/**
@@ -53,7 +58,7 @@ public class EinvoiceSDkUtil {
 	 * EinvoiceRecallResult
 	 * 人工审核开票
 	 */
-	public static EinvoiceBaseResult manualOperate(EinvoiceManualOperation einvoiceManualOperation) {
+	public  EinvoiceBaseResult manualOperate(EinvoiceManualOperation einvoiceManualOperation) {
 		return new ManualOperationBusiness().manualOperate(einvoiceManualOperation);
 	}
 }
